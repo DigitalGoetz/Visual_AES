@@ -21,6 +21,10 @@ public class AES {
         ks128 = new KeySchedule(key128, ByteArray.SIZE_128);
         keys128 = ks128.generateKeySchedule();
         
+        AES128 smallAES = new AES128(keys128, message);
+        System.out.println("C=" + smallAES.getCipherText().toString());
+        
+        /*
         key192 = new ByteArray(ByteArray.SIZE_192);
         ks192 = new KeySchedule(key192, ByteArray.SIZE_192);
         keys192 = ks192.generateKeySchedule();
@@ -28,6 +32,8 @@ public class AES {
         key256 = new ByteArray(ByteArray.SIZE_256);
         ks256 = new KeySchedule(key256, ByteArray.SIZE_256);
         keys256 = ks256.generateKeySchedule();
+        */
+        
         
         //Generate Key Schedules
         

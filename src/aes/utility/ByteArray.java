@@ -1,11 +1,10 @@
 
 package aes.utility;
 
-
 public class ByteArray {
     
     int size; 
-    int bytes[];
+    public int bytes[];
     RandomGenerator generator;
     
     public ByteArray(int size){
@@ -21,7 +20,11 @@ public class ByteArray {
         bytes = array;
         size = bytes.length;
         generator = RandomGenerator.getInstance();
-        
+    }
+    
+    public ByteArray(){
+        this.size = ByteArray.SIZE_128;
+        bytes = new int[this.size];
     }
     
     public ByteArray(Word a, Word b, Word c, Word d){
@@ -140,6 +143,14 @@ public class ByteArray {
         return new Word(bytes[i], bytes[i+1], bytes[i+2], bytes[i+3]);
     }
     
+    public int getByte(int index){
+        return bytes[index];
+    }
+    
+    public void setByte(int index, int value){
+        bytes[index] = value;
+    }
+    
     
     public void printContents(){
         for(int i = 0; i < bytes.length; i++){
@@ -187,10 +198,7 @@ public class ByteArray {
         }else{
             return Integer.toHexString(b);    
         }
-        
-        
     }
-    
     
     public static final int SIZE_128 = 16;
     public static final int SIZE_192 = 24;
