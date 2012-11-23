@@ -47,7 +47,7 @@ public class KeySchedule {
             keyList.add(new ByteArray(a, b, c, d));
         }
         
-        printKeyList();
+        //printKeyList();
         return keyList;
     }
     

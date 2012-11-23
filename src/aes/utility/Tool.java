@@ -36,521 +36,520 @@ public class Tool {
         }
     }
     
-    
-    public static int sbox(int input){
-        
+    //Need to swap the case and return values to invert the sbox function
+    public static int sbox_inv(int input){
         switch(input){
-            case 0: 
+            case 0x00: 
                 return 0x63;
-            case 1: 
+            case 0x01: 
                 return 0x7C;
-            case 2: 
+            case 0x02: 
                 return 0x77;
-            case 3:
+            case 0x03:
                 return 0x7B;
-            case 4:
+            case 0x04:
                 return 0xF2;
-            case 5:
+            case 0x05:
                 return 0x6B;
-            case 6:
+            case 0x06:
                 return 0x6F;
-            case 7:
+            case 0x07:
                 return 0xC5;
-            case 8:
+            case 0x08:
                 return 0x30;
-            case 9:
+            case 0x09:
                 return 0x01;
-            case 10:
+            case 0x0A:
                 return 0x67;
-            case 11:
+            case 0x0B:
                 return 0x2B;
-            case 12:
+            case 0x0C:
                 return 0xFE;
-            case 13:
+            case 0x0D:
                 return 0xD7;
-            case 14:
+            case 0x0E:
                 return 0xAB;
-            case 15:
+            case 0x0F:
                 return 0x76;
-            case 16:
+            case 0x10:
                 return 0xCA;
-            case 17:
+            case 0x11:
                 return 0x82;
-            case 18:
+            case 0x12:
                 return 0xC9;
-            case 19:
+            case 0x13:
                 return 0x7D;
-            case 20:
+            case 0x14:
                 return 0xFA;
-            case 21:
+            case 0x15:
                 return 0x59;
-            case 22:
+            case 0x16:
                 return 0x47;
-            case 23:
+            case 0x17:
                 return 0xF0;
-            case 24:
+            case 0x18:
                 return 0xAD;
-            case 25:
+            case 0x19:
                 return 0xD4;
-            case 26:
+            case 0x1A:
                 return 0xA2;
-            case 27:
+            case 0x1B:
                 return 0xAF;
-            case 28:
+            case 0x1C:
                 return 0x9C;
-            case 29:
+            case 0x1D:
                 return 0xA4;
-            case 30:
+            case 0x1E:
                 return 0x72;
-            case 31:
+            case 0x1F:
                 return 0xC0;
-            case 32:
+            case 0x20:
                 return 0xB7;
-            case 33:
+            case 0x21:
                 return 0xFD;
-            case 34:
+            case 0x22:
                 return 0x93;
-            case 35:
+            case 0x23:
                 return 0x26;
-            case 36:
+            case 0x24:
                 return 0x36;
-            case 37:
+            case 0x25:
                 return 0x3F;
-            case 38:
+            case 0x26:
                 return 0xF7;
-            case 39:
+            case 0x27:
                 return 0xCC;
-            case 40:
+            case 0x28:
                 return 0x34;
-            case 41:
+            case 0x29:
                 return 0xA5;
-            case 42:
+            case 0x2A:
                 return 0xE5;
-            case 43:
+            case 0x2B:
                 return 0xF1;
-            case 44:
+            case 0x2C:
                 return 0x71;
-            case 45:
+            case 0x2D:
                 return 0xD8;
-            case 46:
+            case 0x2E:
                 return 0x31;
-            case 47:
+            case 0x2F:
                 return 0x15;
-            case 48:
+            case 0x30:
                 return 0x04;
-            case 49:
+            case 0x31:
                 return 0xC7;
-            case 50:
+            case 0x32:
                 return 0x23;
-            case 51:
+            case 0x33:
                 return 0xC3;
-            case 52:
+            case 0x34:
                 return 0x18;
-            case 53:
+            case 0x35:
                 return 0x96;
-            case 54:
+            case 0x36:
                 return 0x05;
-            case 55:
+            case 0x37:
                 return 0x9A;
-            case 56:
+            case 0x38:
                 return 0x07;
-            case 57:
+            case 0x39:
                 return 0x12;
-            case 58:
+            case 0x3A:
                 return 0x80;
-            case 59:
+            case 0x3B:
                 return 0xE2;
-            case 60:
+            case 0x3C:
                 return 0xEB;
-            case 61:
+            case 0x3D:
                 return 0x27;
-            case 62:
+            case 0x3E:
                 return 0xB2;
-            case 63:
+            case 0x3F:
                 return 0x75;
-            case 64:
+            case 0x40:
                 return 0x09;
-            case 65:
+            case 0x41:
                 return 0x83;
-            case 66:
+            case 0x42:
                 return 0x2C;
-            case 67:
+            case 0x43:
                 return 0x1A;
-            case 68:
+            case 0x44:
                 return 0x1B;
-            case 69:
+            case 0x45:
                 return 0x6E;
-            case 70:
+            case 0x46:
                 return 0x5A;
-            case 71:
+            case 0x47:
                 return 0xA0;
-            case 72:
+            case 0x48:
                 return 0x52;
-            case 73:
+            case 0x49:
                 return 0x3B;
-            case 74:
+            case 0x4A:
                 return 0xD6;
-            case 75:
+            case 0x4B:
                 return 0xB3;
-            case 76:
+            case 0x4C:
                 return 0x29;
-            case 77:
+            case 0x4D:
                 return 0xE3;
-            case 78:
+            case 0x4E:
                 return 0x2F;
-            case 79:
+            case 0x4F:
                 return 0x84;
-            case 80:
+            case 0x50:
                 return 0x53;
-            case 81:
+            case 0x51:
                 return 0xD1;
-            case 82:
+            case 0x52:
                 return 0x00;
-            case 83:
+            case 0x53:
                 return 0xED;
-            case 84:
+            case 0x54:
                 return 0x20;
-            case 85:
+            case 0x55:
                 return 0xFC;
-            case 86:
+            case 0x56:
                 return 0xB1;
-            case 87:
+            case 0x57:
                 return 0x5B;
-            case 88:
+            case 0x58:
                 return 0x6A;
-            case 89:
+            case 0x59:
                 return 0xCB;
-            case 90:
+            case 0x5A:
                 return 0xBE;
-            case 91:
+            case 0x5B:
                 return 0x39;
-            case 92:
+            case 0x5C:
                 return 0x4A;
-            case 93:
+            case 0x5D:
                 return 0x4C;
-            case 94:
+            case 0x5E:
                 return 0x58;
-            case 95:
+            case 0x5F:
                 return 0xCF;
-            case 96:
+            case 0x60:
                 return 0xD0;
-            case 97:
+            case 0x61:
                 return 0xEF;
-            case 98:
+            case 0x62:
                 return 0xAA;
-            case 99:
+            case 0x63:
                 return 0xFB;
-            case 100:
+            case 0x64:
                 return 0x43;
-            case 101:
+            case 0x65:
                 return 0x4D;
-            case 102:
+            case 0x66:
                 return 0x33;
-            case 103:
+            case 0x67:
                 return 0x85;
-            case 104:
+            case 0x68:
                 return 0x45;
-            case 105:
+            case 0x69:
                 return 0xF9;
-            case 106:
+            case 0x6A:
                 return 0x02;
-            case 107:
+            case 0x6B:
                 return 0x7F;
-            case 108:
+            case 0x6C:
                 return 0x50;
-            case 109:
+            case 0x6D:
                 return 0x3C;
-            case 110:
+            case 0x6E:
                 return 0x9F;
-            case 111:
+            case 0x6F:
                 return 0xA8;
-            case 112:
+            case 0x70:
                 return 0x51;
-            case 113:
+            case 0x71:
                 return 0xA3;
-            case 114:
+            case 0x72:
                 return 0x40;
-            case 115:
+            case 0x73:
                 return 0x8F;
-            case 116:
+            case 0x74:
                 return 0x92;
-            case 117:
+            case 0x75:
                 return 0x9D;
-            case 118:
+            case 0x76:
                 return 0x38;
-            case 119:
+            case 0x77:
                 return 0xF5;
-            case 120:
+            case 0x78:
                 return 0xBC;
-            case 121:
+            case 0x79:
                 return 0xB6;
-            case 122:
+            case 0x7A:
                 return 0xDA;
-            case 123:
+            case 0x7B:
                 return 0x21;
-            case 124:
+            case 0x7C:
                 return 0x10;
-            case 125:
+            case 0x7D:
                 return 0xFF;
-            case 126:
+            case 0x7E:
                 return 0xF3;
-            case 127:
+            case 0x7F:
                 return 0xD2;
-            case 128:
+            case 0x80:
                 return 0xCD;
-            case 129:
+            case 0x81:
                 return 0x0C;
-            case 130:
+            case 0x82:
                 return 0x13;
-            case 131:
+            case 0x83:
                 return 0xEC;
-            case 132:
+            case 0x84:
                 return 0x5F;
-            case 133:
+            case 0x85:
                 return 0x97;
-            case 134:
+            case 0x86:
                 return 0x44;
-            case 135:
+            case 0x87:
                 return 0x17;
-            case 136:
+            case 0x88:
                 return 0xC4;
-            case 137:
+            case 0x89:
                 return 0xA7;
-            case 138:
+            case 0x8A:
                 return 0x7E;
-            case 139:
+            case 0x8B:
                 return 0x3D;
-            case 140:
+            case 0x8C:
                 return 0x64;
-            case 141:
+            case 0x8D:
                 return 0x5D;
-            case 142:
+            case 0x8E:
                 return 0x19;
-            case 143:
+            case 0x8F:
                 return 0x73;
-            case 144:
+            case 0x90:
                 return 0x60;
-            case 145:
+            case 0x91:
                 return 0x81;
-            case 146: 
+            case 0x92: 
                 return 0x4F;
-            case 147:
+            case 0x93:
                 return 0xDC;
-            case 148: 
+            case 0x94: 
                 return 0x22;
-            case 149:
+            case 0x95:
                 return 0x2A;
-            case 150:
+            case 0x96:
                 return 0x90;
-            case 151:
+            case 0x97:
                 return 0x88;
-            case 152:
+            case 0x98:
                 return 0x46;
-            case 153:
+            case 0x99:
                 return 0xEE;
-            case 154:
+            case 0x9A:
                 return 0xB8;
-            case 155:
+            case 0x9B:
                 return 0x14;
-            case 156:
+            case 0x9C:
                 return 0xDE;
-            case 157:
+            case 0x9D:
                 return 0x5E;
-            case 158:
+            case 0x9E:
                 return 0x0B;
-            case 159:
+            case 0x9F:
                 return 0xDB;
-            case 160:
+            case 0xA0:
                 return 0xE0;
-            case 161:
+            case 0xA1:
                 return 0x32;
-            case 162:
+            case 0xA2:
                 return 0x3A;
-            case 163:
+            case 0xA3:
                 return 0x0A;
-            case 164:
+            case 0xA4:
                 return 0x49;
-            case 165:
+            case 0xA5:
                 return 0x06;
-            case 166:
+            case 0xA6:
                 return 0x24;
-            case 167:
+            case 0xA7:
                 return 0x5C;
-            case 168:
+            case 0xA8:
                 return 0xC2;
-            case 169:
+            case 0xA9:
                 return 0xD3;
-            case 170:
+            case 0xAA:
                 return 0xAC;
-            case 171:
+            case 0xAB:
                 return 0x62;
-            case 172:
+            case 0xAC:
                 return 0x91;
-            case 173:
+            case 0xAD:
                 return 0x95;
-            case 174:
+            case 0xAE:
                 return 0xE4;
-            case 175:
+            case 0xAF:
                 return 0x79;
-            case 176:
+            case 0xB0:
                 return 0xE7;
-            case 177:
+            case 0xB1:
                 return 0xC8;
-            case 178:
+            case 0xB2:
                 return 0x37;
-            case 179:
+            case 0xB3:
                 return 0x6D;
-            case 180:
+            case 0xB4:
                 return 0x8D;
-            case 181:
+            case 0xB5:
                 return 0xD5;
-            case 182:
+            case 0xB6:
                 return 0x4E;
-            case 183:
+            case 0xB7:
                 return 0xA9;
-            case 184:
+            case 0xB8:
                 return 0x6C;
-            case 185:
+            case 0xB9:
                 return 0x56;
-            case 186:
+            case 0xBA:
                 return 0xF4;
-            case 187:
+            case 0xBB:
                 return 0xEA;
-            case 188:
+            case 0xBC:
                 return 0x65;
-            case 189:
+            case 0xBD:
                 return 0x7A;
-            case 190:
+            case 0xBE:
                 return 0xAE;
-            case 191:
+            case 0xBF:
                 return 0x08;
-            case 192:
+            case 0xC0:
                 return 0xBA;
-            case 193:
+            case 0xC1:
                 return 0x78;
-            case 194:
+            case 0xC2:
                 return 0x25;
-            case 195:
+            case 0xC3:
                 return 0x2E;
-            case 196:
+            case 0xC4:
                 return 0x1C;
-            case 197:
+            case 0xC5:
                 return 0xA6;
-            case 198:
+            case 0xC6:
                 return 0xB4;
-            case 199:
+            case 0xC7:
                 return 0xC6;
-            case 200:
+            case 0xC8:
                 return 0xE8;
-            case 201:
+            case 0xC9:
                 return 0xDD;
-            case 202:
+            case 0xCA:
                 return 0x74;
-            case 203:
+            case 0xCB:
                 return 0x1F;
-            case 204:
+            case 0xCC:
                 return 0x4B;
-            case 205:
+            case 0xCD:
                 return 0xBD;
-            case 206:
+            case 0xCE:
                 return 0x8B;
-            case 207:
+            case 0xCF:
                 return 0x8A;
-            case 208:
+            case 0xD0:
                 return 0x70;
-            case 209:
+            case 0xD1:
                 return 0x3E;
-            case 210:
+            case 0xD2:
                 return 0xB5;
-            case 211:
+            case 0xD3:
                 return 0x66;
-            case 212:
+            case 0xD4:
                 return 0x48;
-            case 213:
+            case 0xD5:
                 return 0x03;
-            case 214:
+            case 0xD6:
                 return 0xF6;
-            case 215:
+            case 0xD7:
                 return 0x0E;
-            case 216:
+            case 0xD8:
                 return 0x61;
-            case 217:
+            case 0xD9:
                 return 0x35;
-            case 218:
+            case 0xDA:
                 return 0x57;
-            case 219:
+            case 0xDB:
                 return 0xB9;
-            case 220:
+            case 0xDC:
                 return 0x86;
-            case 221:
+            case 0xDD:
                 return 0xC1;
-            case 222:
+            case 0xDE:
                 return 0x1D;
-            case 223:
+            case 0xDF:
                 return 0x9E;
-            case 224:
+            case 0xE0:
                 return 0xE1;
-            case 225:
+            case 0xE1:
                 return 0xF8;
-            case 226:
+            case 0xE2:
                 return 0x98;
-            case 227:
+            case 0xE3:
                 return 0x11;
-            case 228:
+            case 0xE4:
                 return 0x69;
-            case 229:
+            case 0xE5:
                 return 0xD9;
-            case 230:
+            case 0xE6:
                 return 0x8E;
-            case 231:
+            case 0xE7:
                 return 0x94;
-            case 232:
+            case 0xE8:
                 return 0x9B;
-            case 233:
+            case 0xE9:
                 return 0x1E;
-            case 234:
+            case 0xEA:
                 return 0x87;
-            case 235:
+            case 0xEB:
                 return 0xE9;
-            case 236:
+            case 0xEC:
                 return 0xCE;
-            case 237:
+            case 0xED:
                 return 0x55;
-            case 238:
+            case 0xEE:
                 return 0x28;
-            case 239:
+            case 0xEF:
                 return 0xDF;
-            case 240:
+            case 0xF0:
                 return 0x8C;
-            case 241:
+            case 0xF1:
                 return 0xA1;
-            case 242:
+            case 0xF2:
                 return 0x89;
-            case 243:
+            case 0xF3:
                 return 0x0D;
-            case 244:
+            case 0xF4:
                 return 0xBF;
-            case 245:
+            case 0xF5:
                 return 0xE6;
-            case 246:
+            case 0xF6:
                 return 0x42;
-            case 247:
+            case 0xF7:
                 return 0x68;
-            case 248:
+            case 0xF8:
                 return 0x41;
-            case 249:
+            case 0xF9:
                 return 0x99;
-            case 250:
+            case 0xFA:
                 return 0x2D;
-            case 251:
+            case 0xFB:
                 return 0x0F;
-            case 252:
+            case 0xFC:
                 return 0xB0;
-            case 253:
+            case 0xFD:
                 return 0x54;
-            case 254:
+            case 0xFE:
                 return 0xBB;
-            case 255:
+            case 0xFF:
                 return 0x16;
                 
             default:
@@ -558,6 +557,529 @@ public class Tool {
                 break;
         }
         return -1;
+    }
+    
+    public static int sbox(int input){
+                switch(input){
+            case 0x00: 
+                return 0x63;
+            case 0x01: 
+                return 0x7C;
+            case 0x02: 
+                return 0x77;
+            case 0x03:
+                return 0x7B;
+            case 0x04:
+                return 0xF2;
+            case 0x05:
+                return 0x6B;
+            case 0x06:
+                return 0x6F;
+            case 0x07:
+                return 0xC5;
+            case 0x08:
+                return 0x30;
+            case 0x09:
+                return 0x01;
+            case 0x0A:
+                return 0x67;
+            case 0x0B:
+                return 0x2B;
+            case 0x0C:
+                return 0xFE;
+            case 0x0D:
+                return 0xD7;
+            case 0x0E:
+                return 0xAB;
+            case 0x0F:
+                return 0x76;
+            case 0x10:
+                return 0xCA;
+            case 0x11:
+                return 0x82;
+            case 0x12:
+                return 0xC9;
+            case 0x13:
+                return 0x7D;
+            case 0x14:
+                return 0xFA;
+            case 0x15:
+                return 0x59;
+            case 0x16:
+                return 0x47;
+            case 0x17:
+                return 0xF0;
+            case 0x18:
+                return 0xAD;
+            case 0x19:
+                return 0xD4;
+            case 0x1A:
+                return 0xA2;
+            case 0x1B:
+                return 0xAF;
+            case 0x1C:
+                return 0x9C;
+            case 0x1D:
+                return 0xA4;
+            case 0x1E:
+                return 0x72;
+            case 0x1F:
+                return 0xC0;
+            case 0x20:
+                return 0xB7;
+            case 0x21:
+                return 0xFD;
+            case 0x22:
+                return 0x93;
+            case 0x23:
+                return 0x26;
+            case 0x24:
+                return 0x36;
+            case 0x25:
+                return 0x3F;
+            case 0x26:
+                return 0xF7;
+            case 0x27:
+                return 0xCC;
+            case 0x28:
+                return 0x34;
+            case 0x29:
+                return 0xA5;
+            case 0x2A:
+                return 0xE5;
+            case 0x2B:
+                return 0xF1;
+            case 0x2C:
+                return 0x71;
+            case 0x2D:
+                return 0xD8;
+            case 0x2E:
+                return 0x31;
+            case 0x2F:
+                return 0x15;
+            case 0x30:
+                return 0x04;
+            case 0x31:
+                return 0xC7;
+            case 0x32:
+                return 0x23;
+            case 0x33:
+                return 0xC3;
+            case 0x34:
+                return 0x18;
+            case 0x35:
+                return 0x96;
+            case 0x36:
+                return 0x05;
+            case 0x37:
+                return 0x9A;
+            case 0x38:
+                return 0x07;
+            case 0x39:
+                return 0x12;
+            case 0x3A:
+                return 0x80;
+            case 0x3B:
+                return 0xE2;
+            case 0x3C:
+                return 0xEB;
+            case 0x3D:
+                return 0x27;
+            case 0x3E:
+                return 0xB2;
+            case 0x3F:
+                return 0x75;
+            case 0x40:
+                return 0x09;
+            case 0x41:
+                return 0x83;
+            case 0x42:
+                return 0x2C;
+            case 0x43:
+                return 0x1A;
+            case 0x44:
+                return 0x1B;
+            case 0x45:
+                return 0x6E;
+            case 0x46:
+                return 0x5A;
+            case 0x47:
+                return 0xA0;
+            case 0x48:
+                return 0x52;
+            case 0x49:
+                return 0x3B;
+            case 0x4A:
+                return 0xD6;
+            case 0x4B:
+                return 0xB3;
+            case 0x4C:
+                return 0x29;
+            case 0x4D:
+                return 0xE3;
+            case 0x4E:
+                return 0x2F;
+            case 0x4F:
+                return 0x84;
+            case 0x50:
+                return 0x53;
+            case 0x51:
+                return 0xD1;
+            case 0x52:
+                return 0x00;
+            case 0x53:
+                return 0xED;
+            case 0x54:
+                return 0x20;
+            case 0x55:
+                return 0xFC;
+            case 0x56:
+                return 0xB1;
+            case 0x57:
+                return 0x5B;
+            case 0x58:
+                return 0x6A;
+            case 0x59:
+                return 0xCB;
+            case 0x5A:
+                return 0xBE;
+            case 0x5B:
+                return 0x39;
+            case 0x5C:
+                return 0x4A;
+            case 0x5D:
+                return 0x4C;
+            case 0x5E:
+                return 0x58;
+            case 0x5F:
+                return 0xCF;
+            case 0x60:
+                return 0xD0;
+            case 0x61:
+                return 0xEF;
+            case 0x62:
+                return 0xAA;
+            case 0x63:
+                return 0xFB;
+            case 0x64:
+                return 0x43;
+            case 0x65:
+                return 0x4D;
+            case 0x66:
+                return 0x33;
+            case 0x67:
+                return 0x85;
+            case 0x68:
+                return 0x45;
+            case 0x69:
+                return 0xF9;
+            case 0x6A:
+                return 0x02;
+            case 0x6B:
+                return 0x7F;
+            case 0x6C:
+                return 0x50;
+            case 0x6D:
+                return 0x3C;
+            case 0x6E:
+                return 0x9F;
+            case 0x6F:
+                return 0xA8;
+            case 0x70:
+                return 0x51;
+            case 0x71:
+                return 0xA3;
+            case 0x72:
+                return 0x40;
+            case 0x73:
+                return 0x8F;
+            case 0x74:
+                return 0x92;
+            case 0x75:
+                return 0x9D;
+            case 0x76:
+                return 0x38;
+            case 0x77:
+                return 0xF5;
+            case 0x78:
+                return 0xBC;
+            case 0x79:
+                return 0xB6;
+            case 0x7A:
+                return 0xDA;
+            case 0x7B:
+                return 0x21;
+            case 0x7C:
+                return 0x10;
+            case 0x7D:
+                return 0xFF;
+            case 0x7E:
+                return 0xF3;
+            case 0x7F:
+                return 0xD2;
+            case 0x80:
+                return 0xCD;
+            case 0x81:
+                return 0x0C;
+            case 0x82:
+                return 0x13;
+            case 0x83:
+                return 0xEC;
+            case 0x84:
+                return 0x5F;
+            case 0x85:
+                return 0x97;
+            case 0x86:
+                return 0x44;
+            case 0x87:
+                return 0x17;
+            case 0x88:
+                return 0xC4;
+            case 0x89:
+                return 0xA7;
+            case 0x8A:
+                return 0x7E;
+            case 0x8B:
+                return 0x3D;
+            case 0x8C:
+                return 0x64;
+            case 0x8D:
+                return 0x5D;
+            case 0x8E:
+                return 0x19;
+            case 0x8F:
+                return 0x73;
+            case 0x90:
+                return 0x60;
+            case 0x91:
+                return 0x81;
+            case 0x92: 
+                return 0x4F;
+            case 0x93:
+                return 0xDC;
+            case 0x94: 
+                return 0x22;
+            case 0x95:
+                return 0x2A;
+            case 0x96:
+                return 0x90;
+            case 0x97:
+                return 0x88;
+            case 0x98:
+                return 0x46;
+            case 0x99:
+                return 0xEE;
+            case 0x9A:
+                return 0xB8;
+            case 0x9B:
+                return 0x14;
+            case 0x9C:
+                return 0xDE;
+            case 0x9D:
+                return 0x5E;
+            case 0x9E:
+                return 0x0B;
+            case 0x9F:
+                return 0xDB;
+            case 0xA0:
+                return 0xE0;
+            case 0xA1:
+                return 0x32;
+            case 0xA2:
+                return 0x3A;
+            case 0xA3:
+                return 0x0A;
+            case 0xA4:
+                return 0x49;
+            case 0xA5:
+                return 0x06;
+            case 0xA6:
+                return 0x24;
+            case 0xA7:
+                return 0x5C;
+            case 0xA8:
+                return 0xC2;
+            case 0xA9:
+                return 0xD3;
+            case 0xAA:
+                return 0xAC;
+            case 0xAB:
+                return 0x62;
+            case 0xAC:
+                return 0x91;
+            case 0xAD:
+                return 0x95;
+            case 0xAE:
+                return 0xE4;
+            case 0xAF:
+                return 0x79;
+            case 0xB0:
+                return 0xE7;
+            case 0xB1:
+                return 0xC8;
+            case 0xB2:
+                return 0x37;
+            case 0xB3:
+                return 0x6D;
+            case 0xB4:
+                return 0x8D;
+            case 0xB5:
+                return 0xD5;
+            case 0xB6:
+                return 0x4E;
+            case 0xB7:
+                return 0xA9;
+            case 0xB8:
+                return 0x6C;
+            case 0xB9:
+                return 0x56;
+            case 0xBA:
+                return 0xF4;
+            case 0xBB:
+                return 0xEA;
+            case 0xBC:
+                return 0x65;
+            case 0xBD:
+                return 0x7A;
+            case 0xBE:
+                return 0xAE;
+            case 0xBF:
+                return 0x08;
+            case 0xC0:
+                return 0xBA;
+            case 0xC1:
+                return 0x78;
+            case 0xC2:
+                return 0x25;
+            case 0xC3:
+                return 0x2E;
+            case 0xC4:
+                return 0x1C;
+            case 0xC5:
+                return 0xA6;
+            case 0xC6:
+                return 0xB4;
+            case 0xC7:
+                return 0xC6;
+            case 0xC8:
+                return 0xE8;
+            case 0xC9:
+                return 0xDD;
+            case 0xCA:
+                return 0x74;
+            case 0xCB:
+                return 0x1F;
+            case 0xCC:
+                return 0x4B;
+            case 0xCD:
+                return 0xBD;
+            case 0xCE:
+                return 0x8B;
+            case 0xCF:
+                return 0x8A;
+            case 0xD0:
+                return 0x70;
+            case 0xD1:
+                return 0x3E;
+            case 0xD2:
+                return 0xB5;
+            case 0xD3:
+                return 0x66;
+            case 0xD4:
+                return 0x48;
+            case 0xD5:
+                return 0x03;
+            case 0xD6:
+                return 0xF6;
+            case 0xD7:
+                return 0x0E;
+            case 0xD8:
+                return 0x61;
+            case 0xD9:
+                return 0x35;
+            case 0xDA:
+                return 0x57;
+            case 0xDB:
+                return 0xB9;
+            case 0xDC:
+                return 0x86;
+            case 0xDD:
+                return 0xC1;
+            case 0xDE:
+                return 0x1D;
+            case 0xDF:
+                return 0x9E;
+            case 0xE0:
+                return 0xE1;
+            case 0xE1:
+                return 0xF8;
+            case 0xE2:
+                return 0x98;
+            case 0xE3:
+                return 0x11;
+            case 0xE4:
+                return 0x69;
+            case 0xE5:
+                return 0xD9;
+            case 0xE6:
+                return 0x8E;
+            case 0xE7:
+                return 0x94;
+            case 0xE8:
+                return 0x9B;
+            case 0xE9:
+                return 0x1E;
+            case 0xEA:
+                return 0x87;
+            case 0xEB:
+                return 0xE9;
+            case 0xEC:
+                return 0xCE;
+            case 0xED:
+                return 0x55;
+            case 0xEE:
+                return 0x28;
+            case 0xEF:
+                return 0xDF;
+            case 0xF0:
+                return 0x8C;
+            case 0xF1:
+                return 0xA1;
+            case 0xF2:
+                return 0x89;
+            case 0xF3:
+                return 0x0D;
+            case 0xF4:
+                return 0xBF;
+            case 0xF5:
+                return 0xE6;
+            case 0xF6:
+                return 0x42;
+            case 0xF7:
+                return 0x68;
+            case 0xF8:
+                return 0x41;
+            case 0xF9:
+                return 0x99;
+            case 0xFA:
+                return 0x2D;
+            case 0xFB:
+                return 0x0F;
+            case 0xFC:
+                return 0xB0;
+            case 0xFD:
+                return 0x54;
+            case 0xFE:
+                return 0xBB;
+            case 0xFF:
+                return 0x16;
+                
+            default:
+                System.out.println("sbox input error: " + input );
+                break;
+        }
+        return -1;
+
     }
     
     public static int roundConstant(int roundNumber){

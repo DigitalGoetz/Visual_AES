@@ -4,13 +4,13 @@ package aes.driver;
 import aes.utility.*;
 import java.util.ArrayList;
 
-
-public class AES128 {
+public class AES192 {
+    
     ArrayList<ByteArray> schedule;
     ByteArray message;
     ByteArray encoded;
     
-    AES128(ArrayList<ByteArray> ks, ByteArray plaintext){
+    AES192(ArrayList<ByteArray> ks, ByteArray plaintext){
         this.schedule = ks;
         this.message = plaintext;
     }
@@ -26,7 +26,7 @@ public class AES128 {
     public void performRounds(){
         
         ByteArray cipher = new KeyAddition(this.message, this.schedule.get(0)).getResult();
-        for(int i = 1; i <= AES128.ROUNDS; i++){
+        for(int i = 1; i <= AES192.ROUNDS; i++){
             cipher = round(cipher, this.schedule.get(i));
         }
         encoded = cipher;
@@ -37,5 +37,5 @@ public class AES128 {
         return encoded;
     }
     
-    private static int ROUNDS = 10;
+    private static int ROUNDS = 12;
 }
