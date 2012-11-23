@@ -44,6 +44,16 @@ public class Word {
         
     }
     
+    public static Word h(Word source){
+        int b0, b1, b2, b3;
+        b0 = Tool.sbox(source.byte0);
+        b1 = Tool.sbox(source.byte1);
+        b2 = Tool.sbox(source.byte2);
+        b3 = Tool.sbox(source.byte3);
+        
+        return new Word(b0, b1, b2, b3);
+    }
+    
     public static Word XOR(Word a, Word b){
         Word n = new Word();
         n.byte0 = a.byte0 ^ b.byte0;

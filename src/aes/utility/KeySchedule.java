@@ -350,7 +350,7 @@ public class KeySchedule {
         round_1[1] = Word.XOR(round_1[0], round_0[1]);
         round_1[2] = Word.XOR(round_1[1], round_0[2]);
         round_1[3] = Word.XOR(round_1[2], round_0[3]);
-        round_1[4] = Word.XOR(round_1[3], round_0[4]);
+        round_1[4] = Word.XOR(Word.h(round_1[3]), round_0[4]);
         round_1[5] = Word.XOR(round_1[4], round_0[5]);
         round_1[6] = Word.XOR(round_1[5], round_0[6]);
         round_1[7] = Word.XOR(round_1[6], round_0[7]);
@@ -369,7 +369,7 @@ public class KeySchedule {
         round_2[1] = Word.XOR(round_2[0], round_1[1]);
         round_2[2] = Word.XOR(round_2[1], round_1[2]);
         round_2[3] = Word.XOR(round_2[2], round_1[3]);
-        round_2[4] = Word.XOR(round_2[3], round_1[4]);
+        round_2[4] = Word.XOR(Word.h(round_2[3]), round_1[4]);
         round_2[5] = Word.XOR(round_2[4], round_1[5]);
         round_2[6] = Word.XOR(round_2[5], round_1[6]);
         round_2[7] = Word.XOR(round_2[6], round_1[7]);
@@ -388,7 +388,7 @@ public class KeySchedule {
         round_3[1] = Word.XOR(round_3[0], round_2[1]);
         round_3[2] = Word.XOR(round_3[1], round_2[2]);
         round_3[3] = Word.XOR(round_3[2], round_2[3]);
-        round_3[4] = Word.XOR(round_3[3], round_2[4]);
+        round_3[4] = Word.XOR(Word.h(round_3[3]), round_2[4]);
         round_3[5] = Word.XOR(round_3[4], round_2[5]);
         round_3[6] = Word.XOR(round_3[5], round_2[6]);
         round_3[7] = Word.XOR(round_3[6], round_2[7]);
@@ -407,7 +407,7 @@ public class KeySchedule {
         round_4[1] = Word.XOR(round_4[0], round_3[1]);
         round_4[2] = Word.XOR(round_4[1], round_3[2]);
         round_4[3] = Word.XOR(round_4[2], round_3[3]);
-        round_4[4] = Word.XOR(round_4[3], round_3[4]);
+        round_4[4] = Word.XOR(Word.h(round_4[3]), round_3[4]);
         round_4[5] = Word.XOR(round_4[4], round_3[5]);
         round_4[6] = Word.XOR(round_4[5], round_3[6]);
         round_4[7] = Word.XOR(round_4[6], round_3[7]);
@@ -426,7 +426,7 @@ public class KeySchedule {
         round_5[1] = Word.XOR(round_5[0], round_4[1]);
         round_5[2] = Word.XOR(round_5[1], round_4[2]);
         round_5[3] = Word.XOR(round_5[2], round_4[3]);
-        round_5[4] = Word.XOR(round_5[3], round_4[4]);
+        round_5[4] = Word.XOR(Word.h(round_5[3]), round_4[4]);
         round_5[5] = Word.XOR(round_5[4], round_4[5]);
         round_5[6] = Word.XOR(round_5[5], round_4[6]);
         round_5[7] = Word.XOR(round_5[6], round_4[7]);
@@ -445,7 +445,7 @@ public class KeySchedule {
         round_6[1] = Word.XOR(round_6[0], round_5[1]);
         round_6[2] = Word.XOR(round_6[1], round_5[2]);
         round_6[3] = Word.XOR(round_6[2], round_5[3]);
-        round_6[4] = Word.XOR(round_6[3], round_5[4]);
+        round_6[4] = Word.XOR(Word.h(round_6[3]), round_5[4]);
         round_6[5] = Word.XOR(round_6[4], round_5[5]);
         round_6[6] = Word.XOR(round_6[5], round_5[6]);
         round_6[7] = Word.XOR(round_6[6], round_5[7]);
