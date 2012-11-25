@@ -8,33 +8,64 @@ public class AES192 {
     
     ArrayList<ByteArray> schedule;
     ByteArray message;
-    ByteArray encoded;
+    ByteArray cipherText;
     
     AES192(ArrayList<ByteArray> ks, ByteArray plaintext){
         this.schedule = ks;
         this.message = plaintext;
     }
     
-    public ByteArray round(ByteArray input, ByteArray key){
-        ByteArray subsResult = new ByteSubstitution(input).getOutput();
-        ByteArray shiftResult = new ShiftRows(subsResult).shiftRows();
-        ByteArray mixResult = new MixColumns(shiftResult).getResult();
-        ByteArray result = new KeyAddition(mixResult, key).getResult();
+    public ByteArray enc_round(ByteArray input, ByteArray key){
+        ByteArray subsResult = ByteSubstitution.subs(input);
+        ByteArray shiftResult = ShiftRows.shiftRows(subsResult);
+        ByteArray mixResult = MixColumns.mix(shiftResult);
+        ByteArray result = KeyAddition.KeyAdd(mixResult, key);
         return result;
     }
     
-    public void performRounds(){
-        
-        ByteArray cipher = new KeyAddition(this.message, this.schedule.get(0)).getResult();
-        for(int i = 1; i <= AES192.ROUNDS; i++){
-            cipher = round(cipher, this.schedule.get(i));
-        }
-        encoded = cipher;
+    public ByteArray dec_firstRound(ByteArray input, ByteArray key){
+        ByteArray keyResult = KeyAddition.KeyAdd(input, key);
+        ByteArray shiftResult = ShiftRows.inv_shiftRows(keyResult);
+        ByteArray subResult = ByteSubstitution.inv_subs(shiftResult);
+        return subResult;
     }
     
-    public ByteArray getCipherText(){
-        performRounds();
-        return encoded;
+    public ByteArray dec_round(ByteArray input, ByteArray key){
+        ByteArray keyResult = KeyAddition.KeyAdd(input, key);
+        ByteArray mixResult = MixColumns.inv_mix(keyResult);
+        ByteArray shiftResult = ShiftRows.inv_shiftRows(mixResult);
+        ByteArray subResult = ByteSubstitution.inv_subs(shiftResult);
+        return subResult;
+    }
+    
+    public ByteArray enc_finalRound(ByteArray input, ByteArray key){
+        ByteArray subsResult = ByteSubstitution.subs(input);
+        ByteArray shiftResult = ShiftRows.shiftRows(subsResult);
+        ByteArray result = KeyAddition.KeyAdd(shiftResult, key);
+        return result;
+    }
+    
+    public ByteArray performDecryption(){
+        ByteArray plainText;
+        
+        plainText = dec_firstRound(cipherText, schedule.get(AES192.ROUNDS));
+        for(int i = AES192.ROUNDS - 1; i >= 0; i--){
+            plainText = dec_round(plainText, schedule.get(i));
+        }
+        return plainText;
+    }
+    
+    
+    public ByteArray performEncryption(){
+        
+        ByteArray cipher = KeyAddition.KeyAdd(message, schedule.get(0));
+        for(int i = 1; i < AES192.ROUNDS; i++){
+            cipher = enc_round(cipher, this.schedule.get(i));
+        }
+        
+        cipher = enc_finalRound(cipher, this.schedule.get(AES192.ROUNDS));
+        cipherText = cipher;
+        return cipher;
     }
     
     private static int ROUNDS = 12;
