@@ -16,6 +16,15 @@ public class ByteArray {
         }
     }
     
+    public ByteArray(int size, String hexString){
+        this.size = size;
+        
+    }
+    
+    public static void main(String[] args){
+        String hex = "6ba7310fedf74184db6e139f0529a212";
+    }
+    
     public ByteArray(int[] array){
         bytes = array;
         size = bytes.length;
