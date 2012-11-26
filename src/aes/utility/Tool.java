@@ -1,46 +1,90 @@
-
 package aes.utility;
 
-
 public class Tool {
-   
-    public static int XOR(int a, int b){
-        return a ^ b;
+
+    public static int gfDouble(int variable) {
+        int result;
+        if (variable > 127) {
+            result = variable << 1;
+
+            if (result > 255) {
+                result = result - 256;
+            }
+
+            result = result ^ 0x1B;
+            return result;
+        } else {
+            result = variable << 1;
+            return result;
+        }
     }
-    
-    public static int ByteSum(int a, int b, int c, int d){
-        int x = a + b;
-        if(x > 255) {
-            x = x - 255;
+
+    public static int gfMultiply(int constant, int variable) {
+        int result;
+        if (constant == 0x01) {
+            return variable;
+        } else if (constant == 0x02) {
+            return Tool.gfDouble(variable);
+        } else if (constant == 0x03) {
+            if (variable > 127) {
+                result = Tool.gfDouble(variable);
+                result = result ^ variable;
+                return result;
+            } else {
+                result = Tool.gfDouble(variable);
+                result = result ^ variable;
+                return result;
+            }
+        } else if (constant == 0x09) {
+            result = Tool.gfDouble(variable);
+            result = Tool.gfDouble(result);
+            result = Tool.gfDouble(result);
+            result = result ^ variable;
+            return result;
+        } else if (constant == 0x0D) {
+            result = Tool.gfDouble(variable);
+            result = result ^ variable;
+            result = Tool.gfDouble(result);
+            result = Tool.gfDouble(result);
+            result = result ^ variable;
+            return result;
+        } else if (constant == 0x0B) {
+            result = Tool.gfDouble(variable);
+            result = Tool.gfDouble(result);
+            result = result ^ variable;
+            result = Tool.gfDouble(result);
+            result = result ^ variable;
+            return result;
+        } else if (constant == 0x0E) {
+            result = Tool.gfDouble(variable);
+            result = result ^ variable;
+            result = Tool.gfDouble(result);
+            result = result ^ variable;
+            result = Tool.gfDouble(result);
+            return result;
         }
-        
-        int y = x + c;
-        if(y > 255) {
-            y = y - 255;
-        }
-        
-        int z = y + d;
-        if(z > 255) {
-            z = z - 255;
-        }
-        
-        return z;
+
+        System.out.println("Error in Galois Field Multiplication.");
+        return 0;
     }
-    
-    public static void printArray(int[] array){
-        for(int i = 0; i < array.length; i++){
+
+    public static int ByteSum(int a, int b, int c, int d) {
+        return a ^ b ^ c ^ d;
+    }
+
+    public static void printArray(int[] array) {
+        for (int i = 0; i < array.length; i++) {
             System.out.println("i=" + i + " , val= " + array[i]);
         }
     }
-    
-   
-    public static int sbox_inv(int input){
-        switch(input){
-            case 0x63: 
+
+    public static int sbox_inv(int input) {
+        switch (input) {
+            case 0x63:
                 return 0x00;
-            case 0x7C: 
+            case 0x7C:
                 return 0x01;
-            case 0x77: 
+            case 0x77:
                 return 0x02;
             case 0x7B:
                 return 0x03;
@@ -328,11 +372,11 @@ public class Tool {
                 return 0x90;
             case 0x81:
                 return 0x91;
-            case 0x4F: 
+            case 0x4F:
                 return 0x92;
             case 0xDC:
                 return 0x93;
-            case 0x22: 
+            case 0x22:
                 return 0x94;
             case 0x2A:
                 return 0x95;
@@ -548,21 +592,21 @@ public class Tool {
                 return 0xFE;
             case 0x16:
                 return 0xFF;
-                
+
             default:
-                System.out.println("sbox input error: " + input );
+                System.out.println("sbox input error: " + input);
                 break;
         }
         return -1;
     }
-    
-    public static int sbox(int input){
-                switch(input){
-            case 0x00: 
+
+    public static int sbox(int input) {
+        switch (input) {
+            case 0x00:
                 return 0x63;
-            case 0x01: 
+            case 0x01:
                 return 0x7C;
-            case 0x02: 
+            case 0x02:
                 return 0x77;
             case 0x03:
                 return 0x7B;
@@ -850,11 +894,11 @@ public class Tool {
                 return 0x60;
             case 0x91:
                 return 0x81;
-            case 0x92: 
+            case 0x92:
                 return 0x4F;
             case 0x93:
                 return 0xDC;
-            case 0x94: 
+            case 0x94:
                 return 0x22;
             case 0x95:
                 return 0x2A;
@@ -1070,32 +1114,32 @@ public class Tool {
                 return 0xBB;
             case 0xFF:
                 return 0x16;
-                
+
             default:
-                System.out.println("sbox input error: " + input );
+                System.out.println("sbox input error: " + input);
                 break;
         }
         return -1;
 
     }
-    
-    public static int roundConstant(int roundNumber){
-        switch(roundNumber){
+
+    public static int roundConstant(int roundNumber) {
+        switch (roundNumber) {
             case 1:
                 return 0x01;
             case 2:
                 return 0x02;
-            case 3: 
+            case 3:
                 return 0x04;
-            case 4: 
+            case 4:
                 return 0x08;
             case 5:
                 return 0x10;
-            case 6: 
+            case 6:
                 return 0x20;
             case 7:
                 return 0x40;
-            case 8: 
+            case 8:
                 return 0x80;
             case 9:
                 return 0x1B;

@@ -1,6 +1,10 @@
 
 package aes.driver;
 
+import aes.layers.ByteSubstitution;
+import aes.layers.KeyAddition;
+import aes.layers.MixColumns;
+import aes.layers.ShiftRows;
 import aes.utility.*;
 import java.util.ArrayList;
 
@@ -11,9 +15,10 @@ public class AES256 {
     ByteArray cipherText;
     
     
-    AES256(ArrayList<ByteArray> ks, ByteArray plaintext){
-        this.schedule = ks;
-        this.message = plaintext;
+    public AES256(String key, String plain) {
+        KeySchedule keySchedule = new KeySchedule(HexReader.getByteArray(key), ByteArray.SIZE_256);
+        schedule = keySchedule.generateKeySchedule();
+        message = ByteArray.makeByteArray(plain);
     }
     
     public ByteArray enc_round(ByteArray input, ByteArray key){
@@ -54,6 +59,7 @@ public class AES256 {
         }
         
         cipher = end_finalRound(cipher, this.schedule.get(AES256.ROUNDS));
+        this.cipherText = cipher;
         return cipher;
     }
     
@@ -61,9 +67,11 @@ public class AES256 {
         ByteArray plainText;
         
         plainText = dec_firstRound(cipherText, schedule.get(AES256.ROUNDS));
-        for(int i = AES256.ROUNDS - 1; i >= 0; i--){
+        for(int i = AES256.ROUNDS - 1; i > 0; i--){
             plainText = dec_round(plainText, schedule.get(i));
         }
+        
+        plainText = KeyAddition.KeyAdd(plainText, schedule.get(0));
         return plainText;
     }
     

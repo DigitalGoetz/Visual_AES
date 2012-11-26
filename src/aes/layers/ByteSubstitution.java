@@ -1,17 +1,12 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-package aes.utility;
+package aes.layers;
 
-/**
- *
- * @author Michael.Goetz
- */
+import aes.utility.ByteArray;
+import aes.utility.Tool;
+
 public class ByteSubstitution {
-    
-    public static ByteArray subs(ByteArray input){
-        
+
+    public static ByteArray subs(ByteArray input) {
+
         int[] bytes = new int[16];
         bytes[0] = input.getByte(0);
         bytes[1] = input.getByte(1);
@@ -29,7 +24,7 @@ public class ByteSubstitution {
         bytes[13] = input.getByte(13);
         bytes[14] = input.getByte(14);
         bytes[15] = input.getByte(15);
-        
+
         bytes[0] = Tool.sbox(bytes[0]);
         bytes[1] = Tool.sbox(bytes[1]);
         bytes[2] = Tool.sbox(bytes[2]);
@@ -46,12 +41,12 @@ public class ByteSubstitution {
         bytes[13] = Tool.sbox(bytes[13]);
         bytes[14] = Tool.sbox(bytes[14]);
         bytes[15] = Tool.sbox(bytes[15]);
-        
+
         return new ByteArray(bytes);
     }
-    
-    public static ByteArray inv_subs(ByteArray input){
-        
+
+    public static ByteArray inv_subs(ByteArray input) {
+
         int[] bytes = new int[16];
         bytes[0] = input.getByte(0);
         bytes[1] = input.getByte(1);
@@ -69,7 +64,7 @@ public class ByteSubstitution {
         bytes[13] = input.getByte(13);
         bytes[14] = input.getByte(14);
         bytes[15] = input.getByte(15);
-        
+
         bytes[0] = Tool.sbox_inv(bytes[0]);
         bytes[1] = Tool.sbox_inv(bytes[1]);
         bytes[2] = Tool.sbox_inv(bytes[2]);
@@ -86,7 +81,7 @@ public class ByteSubstitution {
         bytes[13] = Tool.sbox_inv(bytes[13]);
         bytes[14] = Tool.sbox_inv(bytes[14]);
         bytes[15] = Tool.sbox_inv(bytes[15]);
-        
+
         return new ByteArray(bytes);
     }
 }

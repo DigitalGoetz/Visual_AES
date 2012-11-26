@@ -1,6 +1,10 @@
 
 package aes.driver;
 
+import aes.layers.ByteSubstitution;
+import aes.layers.KeyAddition;
+import aes.layers.MixColumns;
+import aes.layers.ShiftRows;
 import aes.utility.*;
 import java.util.ArrayList;
 
@@ -10,9 +14,10 @@ public class AES192 {
     ByteArray message;
     ByteArray cipherText;
     
-    AES192(ArrayList<ByteArray> ks, ByteArray plaintext){
-        this.schedule = ks;
-        this.message = plaintext;
+    public AES192(String key, String plain) {
+        KeySchedule keySchedule = new KeySchedule(HexReader.getByteArray(key), ByteArray.SIZE_192);
+        schedule = keySchedule.generateKeySchedule();
+        message = ByteArray.makeByteArray(plain);
     }
     
     public ByteArray enc_round(ByteArray input, ByteArray key){
@@ -49,9 +54,11 @@ public class AES192 {
         ByteArray plainText;
         
         plainText = dec_firstRound(cipherText, schedule.get(AES192.ROUNDS));
-        for(int i = AES192.ROUNDS - 1; i >= 0; i--){
+        for(int i = AES192.ROUNDS - 1; i > 0; i--){
             plainText = dec_round(plainText, schedule.get(i));
         }
+        
+        plainText = KeyAddition.KeyAdd(plainText, schedule.get(0));
         return plainText;
     }
     
@@ -60,10 +67,10 @@ public class AES192 {
         
         ByteArray cipher = KeyAddition.KeyAdd(message, schedule.get(0));
         for(int i = 1; i < AES192.ROUNDS; i++){
-            cipher = enc_round(cipher, this.schedule.get(i));
+            cipher = enc_round(cipher, schedule.get(i));
         }
         
-        cipher = enc_finalRound(cipher, this.schedule.get(AES192.ROUNDS));
+        cipher = enc_finalRound(cipher, schedule.get(AES192.ROUNDS));
         cipherText = cipher;
         return cipher;
     }
