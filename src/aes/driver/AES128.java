@@ -4,7 +4,9 @@ import aes.layers.ByteSubstitution;
 import aes.layers.KeyAddition;
 import aes.layers.MixColumns;
 import aes.layers.ShiftRows;
-import aes.utility.*;
+import aes.utility.ByteArray;
+import aes.utility.HexReader;
+import aes.utility.KeySchedule;
 import java.util.ArrayList;
 import javax.swing.JTextArea;
 
@@ -17,7 +19,7 @@ public class AES128 {
     JTextArea out;
 
     public AES128(String key, String plain, JTextArea output) {
-        KeySchedule keySchedule = new KeySchedule(HexReader.getByteArray(key), ByteArray.SIZE_128);
+        KeySchedule keySchedule = new KeySchedule(HexReader.getByteArray(key), ByteArray.SIZE_128, output);
         schedule = keySchedule.generateKeySchedule();
         message = ByteArray.makeByteArray(plain);
         out = output;

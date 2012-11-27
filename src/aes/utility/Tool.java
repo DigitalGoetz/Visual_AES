@@ -1,13 +1,14 @@
 package aes.utility;
 
 import java.util.ArrayList;
+import javax.swing.JTextArea;
 
 public class Tool {
     
-    public static void printSchedule(ArrayList<ByteArray> ks){
-        System.out.println("KEY SCHEDULE: ");
+    public static void printSchedule(ArrayList<ByteArray> ks, JTextArea output){
+        output.append("KEY SCHEDULE: \n");
         for(int i = 0; i < ks.size(); i++){
-            System.out.println(ks.get(i).toString() + " : round " + i );
+            output.append(ks.get(i).toString() + " : round " + i  + "\n");
         }
     }
 

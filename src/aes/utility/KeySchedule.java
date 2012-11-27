@@ -1,6 +1,7 @@
 package aes.utility;
 
 import java.util.ArrayList;
+import javax.swing.JTextArea;
 
 public class KeySchedule {
 
@@ -8,10 +9,12 @@ public class KeySchedule {
     int keySize;
     ArrayList<ByteArray> keyList;
     ArrayList<Word> wordList;
+    JTextArea out;
 
-    public KeySchedule(ByteArray key, int keySize) {
+    public KeySchedule(ByteArray key, int keySize, JTextArea output) {
         this.key = key;
         this.keySize = keySize;
+        out = output;
         wordList = new ArrayList<>();
     }
 
@@ -46,7 +49,7 @@ public class KeySchedule {
             keyList.add(new ByteArray(a, b, c, d));
         }
         
-        Tool.printSchedule(keyList);
+        Tool.printSchedule(keyList, out);
         return keyList;
     }
 

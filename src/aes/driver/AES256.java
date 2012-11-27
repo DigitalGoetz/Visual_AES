@@ -20,7 +20,7 @@ public class AES256 {
     JTextArea out;
     
     public AES256(String key, String plain, JTextArea output) {
-        KeySchedule keySchedule = new KeySchedule(HexReader.getByteArray(key), ByteArray.SIZE_256);
+        KeySchedule keySchedule = new KeySchedule(HexReader.getByteArray(key), ByteArray.SIZE_256, output);
         schedule = keySchedule.generateKeySchedule();
         message = ByteArray.makeByteArray(plain);
         out = output;

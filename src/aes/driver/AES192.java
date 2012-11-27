@@ -18,7 +18,7 @@ public class AES192 {
     JTextArea out;
     
     public AES192(String key, String plain, JTextArea output) {
-        KeySchedule keySchedule = new KeySchedule(HexReader.getByteArray(key), ByteArray.SIZE_192);
+        KeySchedule keySchedule = new KeySchedule(HexReader.getByteArray(key), ByteArray.SIZE_192, output);
         schedule = keySchedule.generateKeySchedule();
         message = ByteArray.makeByteArray(plain);
         out = output;
