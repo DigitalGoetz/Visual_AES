@@ -1,6 +1,15 @@
 package aes.utility;
 
+import java.util.ArrayList;
+
 public class Tool {
+    
+    public static void printSchedule(ArrayList<ByteArray> ks){
+        System.out.println("KEY SCHEDULE: ");
+        for(int i = 0; i < ks.size(); i++){
+            System.out.println(ks.get(i).toString() + " : round " + i );
+        }
+    }
 
     public static int gfDouble(int variable) {
         int result;

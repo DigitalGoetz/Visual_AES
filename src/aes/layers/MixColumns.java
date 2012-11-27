@@ -2,10 +2,12 @@ package aes.layers;
 
 import aes.utility.ByteArray;
 import aes.utility.Tool;
+import javax.swing.JTextArea;
 
 public class MixColumns {
 
-    public static ByteArray mix(ByteArray input) {
+    public static ByteArray mix(ByteArray input, JTextArea out) {
+        out.append(input.toString() + " = MixColumn  in\n" );
         int[] bytes = new int[16];
 
         bytes[0] = Tool.ByteSum(
@@ -96,11 +98,13 @@ public class MixColumns {
                 Tool.gfMultiply(0x01, input.getByte(14)),
                 Tool.gfMultiply(0x02, input.getByte(15)));
 
-        return new ByteArray(bytes);
+        ByteArray results = new ByteArray(bytes);
+        out.append(results.toString() + " = MixColumn out\n" );
+        return results;
     }
 
-    public static ByteArray inv_mix(ByteArray input) {
-
+    public static ByteArray inv_mix(ByteArray input, JTextArea out) {
+        out.append( input.toString() + " = InvMxColumn  in\n");
         int[] bytes = new int[16];
 
         bytes[0] = Tool.ByteSum(
@@ -191,6 +195,8 @@ public class MixColumns {
                 Tool.gfMultiply(0x09, input.getByte(14)),
                 Tool.gfMultiply(0x0E, input.getByte(15)));
 
-        return new ByteArray(bytes);
+        ByteArray results = new ByteArray(bytes);
+        out.append( results.toString() + " = InvMxColumn out\n");
+        return results;
     }
 }

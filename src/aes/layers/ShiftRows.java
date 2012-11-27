@@ -1,10 +1,12 @@
 package aes.layers;
 
 import aes.utility.ByteArray;
+import javax.swing.JTextArea;
 
 public class ShiftRows {
 
-    public static ByteArray shiftRows(ByteArray block) {
+    public static ByteArray shiftRows(ByteArray block, JTextArea out) {
+        out.append( block.toString() + " = ShiftRow in\n");
         int[] bytes = new int[16];
         bytes[0] = block.getByte(0);
         bytes[1] = block.getByte(5);
@@ -23,10 +25,13 @@ public class ShiftRows {
         bytes[14] = block.getByte(6);
         bytes[15] = block.getByte(11);
 
-        return new ByteArray(bytes);
+        ByteArray results = new ByteArray(bytes);
+        out.append(results.toString() + " = ShiftRow out\n");
+        return results;
     }
 
-    public static ByteArray inv_shiftRows(ByteArray block) {
+    public static ByteArray inv_shiftRows(ByteArray block, JTextArea out) {
+        out.append(block.toString() + " = InvShiftRow in\n");
         int[] bytes = new int[16];
         bytes[0] = block.getByte(0);
         bytes[1] = block.getByte(13);
@@ -45,6 +50,8 @@ public class ShiftRows {
         bytes[14] = block.getByte(6);
         bytes[15] = block.getByte(3);
 
-        return new ByteArray(bytes);
+        ByteArray results = new ByteArray(bytes);
+        out.append(results.toString() + " = InvShiftRow out\n");
+        return results;
     }
 }

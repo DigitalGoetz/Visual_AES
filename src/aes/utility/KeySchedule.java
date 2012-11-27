@@ -45,10 +45,12 @@ public class KeySchedule {
             Word d = wordList.get(4 * i + 3);
             keyList.add(new ByteArray(a, b, c, d));
         }
-
+        
+        Tool.printSchedule(keyList);
         return keyList;
     }
 
+    
     private void generate128() {
         Word[] round_0 = new Word[4];
         round_0[0] = key.getWord(0);

@@ -2,11 +2,12 @@ package aes.layers;
 
 import aes.utility.ByteArray;
 import aes.utility.Tool;
+import javax.swing.JTextArea;
 
 public class ByteSubstitution {
 
-    public static ByteArray subs(ByteArray input) {
-
+    public static ByteArray subs(ByteArray input, JTextArea out) {
+        out.append( input.toString() + " = ByteSubs in\n" );
         int[] bytes = new int[16];
         bytes[0] = input.getByte(0);
         bytes[1] = input.getByte(1);
@@ -41,12 +42,13 @@ public class ByteSubstitution {
         bytes[13] = Tool.sbox(bytes[13]);
         bytes[14] = Tool.sbox(bytes[14]);
         bytes[15] = Tool.sbox(bytes[15]);
-
-        return new ByteArray(bytes);
+        ByteArray results = new ByteArray(bytes);
+        out.append( results.toString() + " = ByteSubs out\n");
+        return results;
     }
 
-    public static ByteArray inv_subs(ByteArray input) {
-
+    public static ByteArray inv_subs(ByteArray input, JTextArea out) {
+        out.append( input.toString() + " = InvByteSubs in\n" );
         int[] bytes = new int[16];
         bytes[0] = input.getByte(0);
         bytes[1] = input.getByte(1);
@@ -81,7 +83,9 @@ public class ByteSubstitution {
         bytes[13] = Tool.sbox_inv(bytes[13]);
         bytes[14] = Tool.sbox_inv(bytes[14]);
         bytes[15] = Tool.sbox_inv(bytes[15]);
-
-        return new ByteArray(bytes);
+        
+        ByteArray results = new ByteArray(bytes);
+        out.append(results.toString() + " = InvByteSubs out\n");
+        return results;
     }
 }

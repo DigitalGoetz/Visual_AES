@@ -22,13 +22,13 @@ public class AES {
     public AES(){
         message = ByteArray.random(ByteArray.SIZE_128);
         key128 = ByteArray.random(ByteArray.SIZE_128);
-        smallAES = new AES128(key128.toString(), message.toString());
+        //smallAES = new AES128(key128.toString(), message.toString());
         
         key192 = ByteArray.random(ByteArray.SIZE_192);
-        medAES = new AES192(key192.toString(), message.toString());
+        //medAES = new AES192(key192.toString(), message.toString());
         
         key256 = ByteArray.random(ByteArray.SIZE_256);
-        largeAES = new AES256(key256.toString(), message.toString());
+        //largeAES = new AES256(key256.toString(), message.toString());
         
         print();
         
@@ -36,22 +36,22 @@ public class AES {
     
     private void print(){
         System.out.println("128 AES:");
-        System.out.println("encryption key =" + key128.toString());
-        System.out.println("plain message  =" + smallAES.message);
-        System.out.println("encrypted text =" + smallAES.performEncryption().toString());
-        System.out.println("decrypted text =" + smallAES.performDecryption().toString());
+        System.out.println(key128.toString() + " = encryption key");
+        System.out.println(smallAES.performEncryption().toString() + " = encrypted text");
+        System.out.println(smallAES.performDecryption().toString() + " = decrypted text");
+        System.out.println(smallAES.message + " = original message");
         
         System.out.println("192 AES:");
-        System.out.println("encryption key =" + key192.toString());
-        System.out.println("plain message  =" + medAES.message);
-        System.out.println("encrypted text =" + medAES.performEncryption().toString());
-        System.out.println("decrypted text =" + medAES.performDecryption().toString());
+        System.out.println(key192.toString() + " = encryption key");
+        System.out.println(medAES.performEncryption().toString() + " = encrypted text");
+        System.out.println(medAES.performDecryption().toString() + " = decrypted text");
+        System.out.println(medAES.message + " = original message");
         
         System.out.println("256 AES:");
-        System.out.println("encryption key =" + key256.toString());
-        System.out.println("plain message  =" + largeAES.message);
-        System.out.println("encrypted text =" + largeAES.performEncryption().toString());
-        System.out.println("decrypted text =" + largeAES.performDecryption().toString());
+        System.out.println(key256.toString() + " = encryption key");
+        System.out.println(largeAES.performEncryption().toString() + " = encrypted text");
+        System.out.println(largeAES.performDecryption().toString() + " = decrypted text");
+        System.out.println(largeAES.message + " = original message");
         
     }
 }
